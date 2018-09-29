@@ -25,16 +25,16 @@ def write_to_file_and_sys():
 
 def check_temp():
     if temperature > MAX_TEMP:
-        Energenie(1, initial_value=False)
+        Energenie(2, initial_value=False)
     if temperature < MIN_TEMP:
-        Energenie(1, initial_value=True)
+        Energenie(2, initial_value=True)
 
 
 def check_humid():
     if humidity > MAX_HUMID:
-        Energenie(2, initial_value=False)
+        Energenie(1, initial_value=False)
     if humidity < MIN_HUMID:
-        Energenie(2, initial_value=True)
+        Energenie(1, initial_value=True)
 
 
 while True:
