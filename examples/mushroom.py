@@ -25,15 +25,19 @@ def write_to_file_and_sys():
 
 def check_temp():
     if temperature > MAX_TEMP:
+        print("Turning off temp")
         Energenie(2, initial_value=False)
     if temperature < MIN_TEMP:
+        print("Turning on temp")
         Energenie(2, initial_value=True)
 
 
 def check_humid():
     if humidity > MAX_HUMID:
+        print("Turning off humid")
         Energenie(1, initial_value=False)
     if humidity < MIN_HUMID:
+        print("Turning on humid")
         Energenie(1, initial_value=True)
 
 
