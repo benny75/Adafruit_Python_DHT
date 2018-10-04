@@ -8,8 +8,8 @@ FREQUENCY_SECONDS = 30
 SENSOR = Adafruit_DHT.AM2302
 PIN = 4
 
-MIN_TEMP = 16
-MAX_TEMP = 21
+MIN_TEMP = 19
+MAX_TEMP = 23
 MIN_HUMID = 80
 MAX_HUMID = 90
 
@@ -45,5 +45,5 @@ while True:
     humidity, temperature = Adafruit_DHT.read_retry(SENSOR, PIN)
     write_to_file_and_sys()
     check_temp()
-    check_humid()
+#     check_humid()
     time.sleep(FREQUENCY_SECONDS)
