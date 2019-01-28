@@ -14,10 +14,11 @@ MIN_HUMID = 80
 MAX_HUMID = 90
 
 def write_to_file_and_sys():
+    now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     if humidity is not None and temperature is not None:
-        output = '{}, {}, {}\n'.format(datetime.datetime.now().timestamp(), temperature, humidity)
+        output = '{}, {}, {}\n'.format(now, temperature, humidity)
     else:
-        output = '{}, Failed to get reading'.format(datetime.datetime.now().timestamp())
+        output = '{}, Failed to get reading'.format(now)
     file = open('dht.log', 'a+')
     print(output)
     file.write(output)
@@ -45,5 +46,5 @@ while True:
     humidity, temperature = Adafruit_DHT.read_retry(SENSOR, PIN)
     write_to_file_and_sys()
 #    check_temp()
-    check_humid()
+#   check_humid()
     time.sleep(FREQUENCY_SECONDS)
