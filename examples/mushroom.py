@@ -8,15 +8,19 @@ FREQUENCY_SECONDS = 30
 SENSOR = Adafruit_DHT.AM2302
 PIN = 4
 
-MIN_TEMP = 18
-MAX_TEMP = 21
+
+MIN_TEMP = 13
+MAX_TEMP = 20
 MIN_HUMID = 80
 MAX_HUMID = 90
+
+
+temp_on = False
 
 def write_to_file_and_sys():
     now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     if humidity is not None and temperature is not None:
-        output = '{}, {0:.2f}, {0:.2f}'.format(now, temperature, humidity)
+        output = '{}, {:.2f}, {:.2f}, {}\n'.format(now, temperature, humidity, temp_on)
     else:
         output = '{}, Failed to get reading'.format(now)
     file = open('dht.log', 'a+')
@@ -26,11 +30,14 @@ def write_to_file_and_sys():
 
 
 def check_temp():
+    global temp_on
     if temperature > MAX_TEMP:
         print("Turning off temp")
+        temp_on = False
         Energenie(2, initial_value=False)
     if temperature < MIN_TEMP:
         print("Turning on temp")
+        temp_on = True
         Energenie(2, initial_value=True)
 
 
