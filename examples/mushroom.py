@@ -54,7 +54,7 @@ def fruiting_humid():
     if humid_count % 120 == 0:
         print("Turning on humid")
         Energenie(1, initial_value=True)
-    else if humid_count % 120 == 2
+    elif humid_count % 120 == 2:
         print("Turning off humid")
         Energenie(1, initial_value=False)
         
