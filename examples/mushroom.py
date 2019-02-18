@@ -14,7 +14,7 @@ MAX_TEMP = 20
 MIN_HUMID = 80
 MAX_HUMID = 90
 
-
+humid_count = 0
 temp_on = False
 
 def write_to_file_and_sys():
@@ -49,10 +49,21 @@ def check_humid():
         print("Turning on humid")
         Energenie(1, initial_value=True)
 
+def fruiting_humid():
+    global humid_count
+    if humid_count % 120 == 0:
+        print("Turning on humid")
+        Energenie(1, initial_value=True)
+    else if humid_count % 120 == 2
+        print("Turning off humid")
+        Energenie(1, initial_value=False)
+        
+    humid_count = humid_count + 1
 
 while True:
     humidity, temperature = Adafruit_DHT.read_retry(SENSOR, PIN)
     write_to_file_and_sys()
     check_temp()
+    fruiting_humid()
 #   check_humid()
     time.sleep(FREQUENCY_SECONDS)
