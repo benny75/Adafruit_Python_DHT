@@ -5,7 +5,7 @@ from gpiozero import Energenie
 
 
 PORT = 2
-OFF_INTERVAL = 3.5
+OFF_INTERVAL = 3.2
 ON_INTERVAL = 1.25
 
 
@@ -21,11 +21,9 @@ def power_off():
     Energenie(PORT, initial_value=False)
 
 
-#power_on()
-#time.sleep(16 * 60)
 while True:
     power_off()
     time.sleep(OFF_INTERVAL * 60)
-    OFF_INTERVAL = OFF_INTERVAL + .05
+    OFF_INTERVAL = OFF_INTERVAL + .1
     power_on()
     time.sleep(ON_INTERVAL * 60)
