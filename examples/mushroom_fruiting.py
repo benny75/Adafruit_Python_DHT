@@ -63,7 +63,7 @@ def fruiting_humid():
 while True:
     humidity, temperature = Adafruit_DHT.read_retry(SENSOR, PIN)
     write_to_file_and_sys()
-    check_temp()
+#    check_temp()
     fruiting_humid()
 #   check_humid()
     time.sleep(FREQUENCY_SECONDS)
