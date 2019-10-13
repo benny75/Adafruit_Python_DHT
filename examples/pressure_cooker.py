@@ -8,6 +8,7 @@ PORT = 2
 OFF_INTERVAL = 3.2
 ON_INTERVAL = 1.25
 
+counter = 0
 
 def power_on():
     now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
@@ -22,6 +23,7 @@ def power_off():
 
 
 while True:
+    counter = counter + 1
     power_off()
     time.sleep(OFF_INTERVAL * 60)
     OFF_INTERVAL = OFF_INTERVAL + .1
