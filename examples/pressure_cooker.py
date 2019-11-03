@@ -29,6 +29,6 @@ while True:
     OFF_INTERVAL = OFF_INTERVAL + .1
     power_on()
     if counter <= 3:
-        time.sleep((ON_INTERVAL+0.25) * 60)
+        time.sleep((ON_INTERVAL+0.3) * 60)
     else:
         time.sleep(ON_INTERVAL * 60)
