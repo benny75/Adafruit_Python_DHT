@@ -6,7 +6,7 @@ from gpiozero import Energenie
 
 PORT = 2
 OFF_INTERVAL = 3.2
-ON_INTERVAL = 1
+ON_INTERVAL = 1.5
 counter = 0
 
 
@@ -28,7 +28,4 @@ while True:
     time.sleep(OFF_INTERVAL * 60)
     OFF_INTERVAL = OFF_INTERVAL + .1
     power_on()
-    if counter <= 3:
-        time.sleep((ON_INTERVAL+0.3) * 60)
-    else:
-        time.sleep(ON_INTERVAL * 60)
+    time.sleep(ON_INTERVAL * 60)
